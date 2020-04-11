@@ -4,7 +4,6 @@ import Symptoms from './Fever.png';
 
 const Home = () => (
   <>
-  <Container>
   <br/>
   <Segment style={style.segment}>
   <Header as="h1" textAlign="left">Watch for symptoms</Header>
@@ -29,10 +28,15 @@ const Home = () => (
   <Segment style={style.segment}>
   <h2>How can I prevent infection?</h2>
   <hr/>
+  <Grid columns={2} divided>
+    <Grid.Row>
+      <Grid.Column>
   <h3>Dos:</h3>
   <li>Wash your hands frequently with hot water and soap or alcohol-based sanitizer (60% alcohol). If your hands are visibly dirty, use soap and water.</li>
   <li>If you have to cough or sneeze, cover your mouth and nose with your elbow, not your hand.</li>
   <li>Maintain at least 1 meter (3 feet) distance between yourself and anyone who is coughing or sneezing.</li>
+    </Grid.Column>
+    <Grid.Column>
   <h3>Don’ts:</h3>
   <li>Don’t touch your face, especially your mouth, eyes, and nose.</li>
   <li>Don’t go to work or school if you have symptoms of a cold or flu.</li>
@@ -55,7 +59,6 @@ const Home = () => (
       for any other symptoms that are severe or concerning.</h4>
   </Segment> 
   <br/>
-
   <Grid>
     <Grid.Row>
       <Grid.Column width={8} center>
@@ -68,9 +71,10 @@ const Home = () => (
       </Grid.Column>
     </Grid.Row>
   </Grid>
-
   <br/> 
-  </Container >
+  <Segment style={style.segment}>
+  </Segment>
+  <br/>
   </>
 )
 
