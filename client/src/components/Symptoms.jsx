@@ -7,7 +7,7 @@ import { Modal,Button } from 'semantic-ui-react'
 class Symptoms extends Component{
 state = {
   symptoms_records: [],
-  newSymptom: false
+  openNewForm: false
 }
 
 componentDidMount(){
@@ -21,16 +21,17 @@ getSymptomRecords = async() =>{
     })
 }
 
-newTrigger = () =>{
+toggleNewForm = () =>{
   this.setState({
-    newSymptom: !this.state.newSymptom
+    openNewForm: !this.state.openNewForm
   })
+  console.log('toggle hit')
 }
 renderSymptoms = () =>{
   return this.state.symptoms_records.forEach(symptom => {
     return (
       <>
-        <p>blah blah</p>
+        <p>{symptom}</p>
       </>
     )
   })
@@ -40,8 +41,15 @@ renderSymptoms = () =>{
     return (
       <>
         {this.renderSymptoms()}
-        <Modal trigger={<Button onClick={this.newTrigger}>New</Button>}>
-          <SymptomsForm trigger={this.newTrigger} getSymptoms={this.getSymptomRecords}/>
+        <Button onClick={this.toggleNewForm}>New</Button>
+        <Modal
+          open={this.state.openNewForm}
+          onCancel={this.state.toggleNewForm}
+        >
+          <SymptomsForm
+            toggleForm={this.toggleNewForm}
+            getSymptoms={this.getSymptomRecords}
+          />
         </Modal>
       </>
     );

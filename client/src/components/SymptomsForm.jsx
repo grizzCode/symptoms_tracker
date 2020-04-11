@@ -53,8 +53,8 @@ class Symptoms extends Component {
     await Axios.put(`/api/symptoms/${this.props.record_id}`, this.state)
   }
     this.clearForm()
+    this.props.toggleForm()
     this.props.getSymptoms()
-    this.props.trigger()
   }
 
   clearForm(){
@@ -71,6 +71,7 @@ class Symptoms extends Component {
     });
   }
 
+
   render() {
     const {
       ill,
@@ -83,6 +84,7 @@ class Symptoms extends Component {
       existing_diseases
     } = this.state;
     return (
+
       <Modal.Content style={styles.modal}>
         <Form onSubmit={this.hanleSubmit}>
           <Form.Group>
