@@ -1,5 +1,4 @@
 class AddTrackToUser < ActiveRecord::Migration[6.0]
-
     def change
       ## Trackable
       add_column :users, :sign_in_count, :integer, :default => 0

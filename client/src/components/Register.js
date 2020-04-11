@@ -3,7 +3,7 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Button, Form, Segment, Header, } from 'semantic-ui-react';
 
 class Register extends React.Component {
-  state = { email: 'test@gmail.com', password: '12345678', passwordConfirmation: '12345678', age: 1, gender: 'male', location: 'Park CIty', first_name: 'Chalres', last_name: 'Buxton', image:'/img' };
+  state = { email: '', password: '', passwordConfirmation: '', age: null, gender: '', location: '', first_name: '', last_name: '', image:'/img' };
   
   handleSubmit = (e) => {
     e.preventDefault();
