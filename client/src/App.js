@@ -1,6 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route, } from 'react-router-dom';
+import { Container, } from "semantic-ui-react";
+import Navbar from './components/Navbar'
+import FetchUser from './components/FetchUser'
+import Home from './components/Home'
+import NoMatch from './components/NoMatch'
+import Login from './components/Login'
+import Register from './components/Register'
+
 
 function App() {
   return (
