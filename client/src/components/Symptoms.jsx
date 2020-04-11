@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import SymptomsForm from './SymptomsForm'
 import Axios from 'axios'
-import { Modal,Button, List} from 'semantic-ui-react'
+import { Modal,Button, List, Container} from 'semantic-ui-react'
 
 
 class Symptoms extends Component {
@@ -28,14 +28,32 @@ toggleNewForm = () =>{
     openNewForm: !this.state.openNewForm
   })
 }
+
+editSymptom = (id) => {
+  console.log('edit hit', id)
+}
+deleteSymptom = (id) => {
+  const { symptoms_records } = this.state
+  console.log('delete hit', id)
+  Axios.delete(`/api/symptoms/${id}`)
+  .then(res => {
+    console.log(res)
+    const filteredArr = symptoms_records.filter(symptom => symptom.id !== id)
+    this.setState({
+      symptoms_records: filteredArr
+    })
+  })
+}
+
 renderSymptoms = () =>{
   const { symptoms_records } = this.state
   console.log(this.state.symptoms_records)
   return symptoms_records.map( s => 
-    <div key={s.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black'}}>
+    <div key={s.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black', padding: '6px'}}>
     <List>
        <List.Content>
-         <List.Header>Data Entry: {s.created_at}</List.Header>
+         <List.Header>My Symptoms as of: {s.created_at}</List.Header>
+         <hr />
          <List.Description>Feeling Ill?: {s.ill ? "YES": "NO"}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
@@ -43,6 +61,9 @@ renderSymptoms = () =>{
          <List.Description>Contact with Carrier?: {s.contact ? "YES": "NO"}</List.Description>
          <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
        </List.Content>
+       <hr />
+       <Button primary size='mini' onClick={() => this.editSymptom(s.id)}>EDIT</Button>
+       <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>DELETE</Button>
      </List>
      </div>
     )
@@ -52,8 +73,9 @@ renderSymptoms = () =>{
   render(){
     return (
       <>
+      <Container>
         {this.renderSymptoms()}
-        <Button onClick={this.toggleNewForm}>New</Button>
+        <Button style={style.button} fluid onClick={this.toggleNewForm}>Click here to fill out a new symptom survey</Button>
         <Modal
           open={this.state.openNewForm}
           onCancel={this.state.toggleNewForm}
@@ -63,9 +85,16 @@ renderSymptoms = () =>{
             getSymptoms={this.getSymptomRecords}
           />
         </Modal>
+        </Container>
       </>
     );
   }
 }
 
-export default Symptoms
+export default Symptoms;
+
+const style ={
+  button: {
+    backgroundColor: "lightblue"
+  }
+}

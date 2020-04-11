@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import FacilitiesForm from "./testing_facilitiesForm";
-import { Button, Modal } from "semantic-ui-react";
+import { Button, Modal, } from "semantic-ui-react";
 import axios from "axios";
 import Facility from "./facility"
 
@@ -17,6 +17,7 @@ export default class TestingFacilities extends Component {
 
   getFacilities = async() => {
         const res = await axios.get(`/api/testing_facilities/`);
+        console.log(res)
         this.setState({
           facilies: res.data
         });
@@ -49,12 +50,22 @@ export default class TestingFacilities extends Component {
   render() {
     return (
       <>
-        <Button onClick={this.toggleForm}>New </Button>
+      <br/>
+        <h3>Add a new testing facility</h3>
+        <br/>
+        <Button style={style.button} fluid onClick={this.toggleForm}>New </Button>
         <Modal open={this.state.newForm} close={this.toggleForm}>
           <FacilitiesForm toggleForm={this.toggleForm} />
         </Modal>
         {this.renderAllFacilities()}
+       
       </>
     );
+  }
+}
+
+const style ={
+  button: {
+    backgroundColor: "lightblue"
   }
 }

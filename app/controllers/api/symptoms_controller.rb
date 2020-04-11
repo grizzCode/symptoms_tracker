@@ -1,5 +1,5 @@
 class Api::SymptomsController < ApplicationController
-  before_action :set_category, only: [:show, :update, :destroy]
+  before_action :set_symptom, only: [:show, :update, :destroy]
 
   def index
     render json: current_user.symptoms.all
@@ -34,6 +34,9 @@ class Api::SymptomsController < ApplicationController
   end
 
   private
+  def set_symptom
+    @symptom = Symptom.find(params[:id])
+  end
 
   def set_testing_facility
     @symtom = Symptom.find(params[:id])

@@ -10,7 +10,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Symptoms from './components/Symptoms'
 import TestingFacilities from './components/testing_facilities';
-
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
@@ -22,8 +22,8 @@ function App() {
       <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path='/symptoms' component={Symptoms} />
-        <Route exact path="/testingFacilities" component={TestingFacilities} />
+        <ProtectedRoute exact path='/symptoms' component={Symptoms} />
+        <ProtectedRoute exact path="/testingFacilities" component={TestingFacilities} />
         <Route component={NoMatch} />
       </Switch>
       </Container> 
