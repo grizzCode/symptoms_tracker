@@ -36,6 +36,7 @@ renderSymptoms = () =>{
     <List>
        <List.Content>
          <List.Header>Data Entry: {s.created_at}</List.Header>
+         <hr />
          <List.Description>Feeling Ill?: {s.ill ? "YES": "NO"}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
@@ -43,6 +44,9 @@ renderSymptoms = () =>{
          <List.Description>Contact with Carrier?: {s.contact ? "YES": "NO"}</List.Description>
          <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
        </List.Content>
+       <hr />
+       <Button primary size='mini'>EDIT</Button>
+       <Button secondary size='mini'>DELETE</Button>
      </List>
      </div>
     )
