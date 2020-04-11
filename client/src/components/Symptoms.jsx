@@ -7,8 +7,8 @@ import { Modal,Button, List, Container} from 'semantic-ui-react'
 class Symptoms extends Component {
 state = {
   symptoms_records: [],
-  openNewForm: false
-  
+  openNewForm: false,
+  editForm: false
 }
 
 componentDidMount(){
@@ -28,9 +28,15 @@ toggleNewForm = () =>{
     openNewForm: !this.state.openNewForm
   })
 }
+toggleEditForm = () =>{
+  this.setState({
+    editForm: !this.state.editForm
+  })
+}
 
 editSymptom = (id) => {
   console.log('edit hit', id)
+  this.toggleEditForm()
 }
 deleteSymptom = (id) => {
   const { symptoms_records } = this.state
@@ -56,13 +62,24 @@ renderSymptoms = () =>{
          <hr />
          <List.Description>Feeling Ill?: {s.ill ? "YES": "NO"}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
-         <List.Description>Pain Level: {s.pain}</List.Description>
+         <List.Description>Temperature: {s.temperature}</List.Description>
          <List.Description>Breathing Function: {s.breathing_function}</List.Description>
          <List.Description>Contact with Carrier?: {s.contact ? "YES": "NO"}</List.Description>
          <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
        </List.Content>
        <hr />
        <Button primary size='mini' onClick={() => this.editSymptom(s.id)}>EDIT</Button>
+          <Modal
+              open={this.state.editForm}
+              onCancel={this.state.toggleEditForm}
+              
+            >
+            <SymptomsForm
+              toggleForm={this.toggleEditForm}
+              getSymptoms={this.getSymptomRecords}
+              record_id={s.id}
+            />
+          </Modal>
        <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>DELETE</Button>
      </List>
      </div>
