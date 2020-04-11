@@ -26,11 +26,15 @@ getFacility = async() => {
   const res = await axios.get(
     `/api/testing_facilities/${this.props.id}`
   );
-  console.log(res)
 
   this.setState({
-    state: res.data
-  })
+    name: res.data.name,
+    street: res.data.street,
+    city: res.data.city, 
+    zip: res.data.zip, 
+    county: res.data.county, 
+    hours: res.data.hours
+  });
 }
 
 handleChange= (e, {name, value}) =>{
@@ -50,11 +54,17 @@ clearState = () =>{
   })
 }
 handleSubmit = () =>{
+
+  if (this.props.id === null ){
   axios
     .post(`/api/testing_facilities`, this.state)
     .then(res => console.log(res))
     .catch(err => console.log(err));
-  
+  } else{
+    axios.put(`/api/testing_facilties/${this.props.id}`, this.state)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
  
 }
 
@@ -65,7 +75,6 @@ handleCancel = () =>{
 
 render(){
   const {name, street, city, zip, county, hours} = this.state
-  console.log(this.props)
   return (
     <>
       <Modal.Content>
