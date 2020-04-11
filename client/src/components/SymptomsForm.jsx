@@ -144,7 +144,7 @@ class Symptoms extends Component {
             <Form.Input>
               <Checkbox
                 name="existing_diseases"
-                label="Do you have any preexisting Cardiovascular or Resperatory conditions?"
+                label="Do you have any preexisting Cardiovascular or Respiratory conditions?"
                 checked={existing_diseases}
                 onClick={this.handleCheckBoxClick}
               />
