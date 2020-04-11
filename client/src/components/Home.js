@@ -1,12 +1,12 @@
 import React from 'react';
 import { Header, Image, Segment, Grid, Container } from 'semantic-ui-react';
 import Symptoms from './Fever.png';
-import Virus from './Covid.png';
 
 const Home = () => (
   <>
   <Container>
   <br/>
+  <Segment style={style.segment}>
   <Header as="h1" textAlign="left">Watch for symptoms</Header>
   <hr/>
   <h3>Reported illnesses have ranged from mild symptoms 
@@ -17,6 +17,7 @@ const Home = () => (
   <li>Fever</li>
   <li>Cough</li>
   <li>Shortness of breath</li>
+  </Segment >
   <Image src ={Symptoms} fluid/>
   <Segment style={style.segment}>
     <h2>When to Seek Medical Attention</h2>
@@ -31,20 +32,22 @@ const Home = () => (
       for any other symptoms that are severe or concerning.</h4>
   </Segment> 
   <br/>
+
   <Grid>
     <Grid.Row>
-      <Grid.Column width={8}>
+      <Grid.Column width={8} center>
         <h3 align="center">Higher Risk Individuals</h3>
-        {/* <iframe width="560" height="315" src="<https://www.youtube.com/watch?v=TjcoN9Aek24&feature=emb_rel_end>" allowfullscreen></iframe> */}
+        <iframe style={style.iframe} width="480" height="340" src="https://www.youtube.com/embed/TjcoN9Aek24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Grid.Column>
-      <Grid.Column width={8}>
+      <Grid.Column width={8} center>
       <h3 align="center">Stop the Spread</h3>
-      {/* <iframe width="560" height="315" src="<https://www.youtube.com/watch?v=9Ay4u7OYOhA>" allowfullscreen></iframe> */}
+      <iframe style={style.iframe} width="480" height="340" src="https://www.youtube.com/embed/9Ay4u7OYOhA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Grid.Column>
     </Grid.Row>
   </Grid>
+
   <br/> 
-  </Container>
+  </Container >
   </>
 )
 
@@ -52,7 +55,12 @@ export default Home;
 
 const style = {
   segment: {
-    backgroundColor: 'teal',
-    opacity: 0.7,
+    backgroundColor: 'lightblue',
+    opacity: 0.6,
+  },
+  iframe: {
+    marginRight: '40px', 
+    marginLeft: '40px', 
   }
 }
+

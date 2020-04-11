@@ -2,7 +2,7 @@ import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Menu, Image, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom';
-import {Virus} from './Covid.png';
+import Virus from './Covid.png';
 
 class Navbar extends React.Component {
   
@@ -11,7 +11,7 @@ class Navbar extends React.Component {
     
     if (user) {
       return (
-        <Menu.Menu position='right'><Image src={Virus} size="tiny"></Image>
+        <Menu.Menu position='right'>
           <Menu.Item
             name='logout'
             onClick={ () => handleLogout(this.props.history) }
@@ -22,14 +22,14 @@ class Navbar extends React.Component {
       return (
         <Menu.Menu position='right'>
           <Link to='/login'>
-            <Menu.Item
+            <Menu.Item style={{fontSize: "20px"}}
               id='login'
               name='login'
               active={location.pathname === '/login'}
             />
           </Link>
           <Link to='/register'>
-            <Menu.Item
+            <Menu.Item style={{fontSize: "20px"}}
               id='register'
               name='register'
               active={location.pathname === '/register'}
@@ -43,25 +43,25 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <Menu pointing secondary>
-          <Link to="/ ">
-            <Menu.Item 
+        <Menu pointing secondary style={{borderColor: "lightblue", paddingTop: "10px"}}>
+          <Link to="/">
+            <Menu.Item style={{fontSize: "20px"}}
               name="home"
               id="home"
-              active={this.props.location.pathname === "/"}
-              
-            />
-            
+              // active={this.props.location.pathname === "/"}
+              >
+                <Image src={Virus} style={{height:"40px", width: "40px", opacity: "0.5"}} />
+                </Menu.Item>
           </Link>
           <Link to="/symptoms">
-            <Menu.Item
+            <Menu.Item style={{fontSize: "20px"}}
               name="symptoms"
               id="symptoms"
               active={this.props.location.pathname === "/symptoms"}
             />
           </Link>
           <Link to="/testingFacilities">
-            <Menu.Item
+            <Menu.Item style={{fontSize: "20px"}}
               name="Testing Facilities"
               id="testingFacilities"
               active={this.props.location.pathname === "/testingFacilities"}
