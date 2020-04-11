@@ -10,9 +10,15 @@ state = {
   newSymptom: false
 }
 
-componentDidMount = async() => {
-  const res = await Axios.get('/api/symptoms')
-  console.log(res)
+componentDidMount(){
+  this.getSymptomRecords()
+}
+
+getSymptomRecords = async() =>{
+    const res = await Axios.get("/api/symptoms");
+    this.setState({
+      symptoms_records: res.data
+    })
 }
 
 newTrigger = () =>{
@@ -20,13 +26,22 @@ newTrigger = () =>{
     newSymptom: !this.state.newSymptom
   })
 }
+renderSymptoms = () =>{
+  return this.state.symptoms_records.forEach(symptom => {
+    return (
+      <>
+        <p>blah blah</p>
+      </>
+    )
+  })
+}
 
   render(){
     return (
       <>
-        <p>symptoms page</p>
+        {this.renderSymptoms()}
         <Modal trigger={<Button onClick={this.newTrigger}>New</Button>}>
-          <SymptomsForm trigger={this.newTrigger}/>
+          <SymptomsForm trigger={this.newTrigger} getSymptoms={this.getSymptomRecords}/>
         </Modal>
       </>
     );
