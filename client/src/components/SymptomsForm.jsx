@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Checkbox, Modal } from "semantic-ui-react";
+import { Form, Checkbox, Modal, Header } from "semantic-ui-react";
 import Axios from "axios";
 
 class Symptoms extends Component {
@@ -92,8 +92,9 @@ class Symptoms extends Component {
     } = this.state;
     return (
 
-      <Modal.Content style={styles.modal}>
-        <Form onSubmit={this.hanleSubmit}>
+      <Modal.Content style={styles.modal} >
+        <Header>Symptom Survey</Header>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Input>
               <Checkbox
@@ -157,7 +158,7 @@ class Symptoms extends Component {
               />
             </Form.Input>
           </Form.Group>
-          <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
+          <Form.Button style={styles.button} onClick={this.handleSubmit}>Submit</Form.Button>
         </Form>
       </Modal.Content>
     );
@@ -170,8 +171,12 @@ export default Symptoms;
 const styles = {
   modal: {
     // display: flex,
-    height: "200px",
+    height: "250px",
     width: "1200px",
-    overflow: "auto"
+    overflow: "auto",
+    padding: "40px",
+  },
+  button: {
+    backgroundColor: "lightblue"
   }
-};
+}
