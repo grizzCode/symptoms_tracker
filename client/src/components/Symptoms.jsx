@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import SymptomsForm from './SymptomsForm'
 import Axios from 'axios'
-import { Modal,Button, List} from 'semantic-ui-react'
+import { Modal,Button, List, Container} from 'semantic-ui-react'
 
 
 class Symptoms extends Component {
@@ -35,7 +35,7 @@ renderSymptoms = () =>{
     <div key={s.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black', padding: '6px'}}>
     <List>
        <List.Content>
-         <List.Header>Data Entry: {s.created_at}</List.Header>
+         <List.Header>My Symptoms as of: {s.created_at}</List.Header>
          <hr />
          <List.Description>Feeling Ill?: {s.ill ? "YES": "NO"}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
@@ -56,8 +56,9 @@ renderSymptoms = () =>{
   render(){
     return (
       <>
+      <Container>
         {this.renderSymptoms()}
-        <Button onClick={this.toggleNewForm}>New</Button>
+        <Button style={style.button} fluid onClick={this.toggleNewForm}>Click here to fill out a new symptom survey</Button>
         <Modal
           open={this.state.openNewForm}
           onCancel={this.state.toggleNewForm}
@@ -67,9 +68,16 @@ renderSymptoms = () =>{
             getSymptoms={this.getSymptomRecords}
           />
         </Modal>
+        </Container>
       </>
     );
   }
 }
 
-export default Symptoms
+export default Symptoms;
+
+const style ={
+  button: {
+    backgroundColor: "lightblue"
+  }
+}

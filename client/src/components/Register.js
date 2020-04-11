@@ -112,7 +112,7 @@ class Register extends React.Component {
               options={locationOptions}
              />
             <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+            <Button style={style.button} primary type='submit' fluid>Submit</Button>
           </Segment>
         </Form>
       </Segment>
@@ -172,3 +172,9 @@ const locationOptions = [
   { key: "39", value: "Woods Cross", text: "Woods Cross" },
  
 ];
+
+const style ={
+  button: {
+    backgroundColor: "lightblue"
+  }
+}
