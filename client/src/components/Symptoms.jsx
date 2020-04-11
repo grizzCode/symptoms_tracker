@@ -92,7 +92,6 @@ renderSymptoms = () =>{
       <Container>
         <Button style={style.button} fluid onClick={this.toggleNewForm}>Click here to fill out a new symptom survey</Button>
         {this.renderSymptoms()}
-        <Button style={style.button} fluid onClick={this.toggleNewForm}>Click here to fill out a new symptom survey</Button>
         <Modal
           open={this.state.openNewForm}
           onCancel={this.state.toggleNewForm}
