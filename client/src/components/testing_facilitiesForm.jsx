@@ -18,6 +18,25 @@ handleChange= (e, {name, value}) =>{
   })
 }
 
+clearState = () =>{
+  this.setState({
+  name: '',
+  street: '',
+  city: '',
+  zip: '',
+  county: '',
+  hours: ''
+  })
+}
+handleSubmit = () =>{
+
+}
+
+handleCancel = () =>{
+  this.clearState()
+  this.props.toggleForm()
+}
+
 render(){
   const {name, street, city, zip, county, hours} = this.state
   return (
@@ -25,13 +44,13 @@ render(){
       <p>Facilities Form</p>
       <Modal.Content>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
             <Form.Input
               name="name"
               label="Facility Name"
               placeholder="place you want to go"
               value={name}
               onChange={this.handleChange}
+              required
             />
             <Form.Input
               name="street"
@@ -39,6 +58,7 @@ render(){
               placeholder="street"
               value={street}
               onChange={this.handleChange}
+              required
             />
             <Form.Input
               name="city"
@@ -46,6 +66,7 @@ render(){
               placeholder="city"
               value={city}
               onChange={this.handleChange}
+              required
             />
             <Form.Input
               name="zip"
@@ -53,6 +74,7 @@ render(){
               placeholder="zip"
               value={zip}
               onChange={this.handleChange}
+              required
             />
             <Form.Input
               name="county"
@@ -60,6 +82,7 @@ render(){
               placeholder="county"
               value={county}
               onChange={this.handleChange}
+              required
             />
             <Form.Input
               name="hours"
@@ -67,9 +90,10 @@ render(){
               placeholder="hours"
               value={hours}
               onChange={this.handleChange}
+              required
             />
-          </Form.Group>
           <Form.Button type="submit">Submit</Form.Button>
+          <Form.Button color="red" onClick={this.handleCancel}>Cancel</Form.Button>
         </Form>
       </Modal.Content>
     </>

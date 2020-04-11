@@ -25,9 +25,9 @@ toggleNewForm = () =>{
   this.setState({
     openNewForm: !this.state.openNewForm
   })
-  console.log('toggle hit')
 }
 renderSymptoms = () =>{
+  console.log(this.state)
   return this.state.symptoms_records.forEach(symptom => {
     return (
       <>
