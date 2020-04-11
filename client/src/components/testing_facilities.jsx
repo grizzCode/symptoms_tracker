@@ -21,7 +21,7 @@ render(){
     <>
       <Button onClick={this.toggleForm}>New </Button>
       <Modal open={this.state.newForm} close={this.toggleForm}>
-        <FacilitiesForm toggleForm={this.toggleForm}/>
+        <FacilitiesForm toggleForm={this.toggleForm} />
       </Modal>
     </>
   );
