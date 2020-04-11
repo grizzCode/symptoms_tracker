@@ -1,12 +1,12 @@
 import React from 'react';
 import { Header, Image, Segment, Grid, Container } from 'semantic-ui-react';
 import Symptoms from './Fever.png';
-import Virus from './Covid.png';
 
 const Home = () => (
   <>
   <Container>
   <br/>
+  <Segment style={style.segment}>
   <Header as="h1" textAlign="left">Watch for symptoms</Header>
   <hr/>
   <h3>Reported illnesses have ranged from mild symptoms 
@@ -14,11 +14,18 @@ const Home = () => (
     2019 (COVID-19) cases. </h3>
   <h3>These symptoms may appear 2-14 days after exposure (based on 
   the incubation period of MERS-CoV viruses).</h3>
+<<<<<<< HEAD
   <li>Fever (80-90% of cases) - body temperature over 38.3°C. This is the key symptom, sometimes accompanied by chills. More common in adults than children.</li>
   <li>Cough (59-82% of cases) - usually dry.</li>
   <li>Breathing difficulty, or shortness of breath (31-55% of cases) - appears on average 5-8 days after the first symptoms of the disease.</li>
   <h4>In addition, other symptoms may occur, such as muscle pain, fatigue, increased phlegm production, headache, sore throat (at the beginning of the disease), chest pain, or coughing up blood (5% of cases). Some patients (10% of cases) also present gastrointestinal symptoms such as nausea, vomiting, diarrhea.</h4>
   <h4>Important: Viruses are particularly common at this time of year. COVID-19 is challenging to diagnose as many of the symptoms are common to other infections. The hallmark symptoms of the COVID-19 infection are cough and fever. However, these are also symptoms of the common flu. Other symptoms, like sneezing, runny nose, sore throat, fatigue and muscle aches, are more suggestive of other infectious diseases.</h4>
+=======
+  <li>Fever</li>
+  <li>Cough</li>
+  <li>Shortness of breath</li>
+  </Segment >
+>>>>>>> 671506e2889720b178cadce38317279e88e92353
   <Image src ={Symptoms} fluid/>
   <h2>What are the risks?</h2>
   <hr/>
@@ -51,20 +58,22 @@ const Home = () => (
       for any other symptoms that are severe or concerning.</h4>
   </Segment> 
   <br/>
+
   <Grid>
     <Grid.Row>
-      <Grid.Column width={8}>
+      <Grid.Column width={8} center>
         <h3 align="center">Higher Risk Individuals</h3>
-        {/* <iframe width="560" height="315" src="<https://www.youtube.com/watch?v=TjcoN9Aek24&feature=emb_rel_end>" allowfullscreen></iframe> */}
+        <iframe style={style.iframe} width="480" height="340" src="https://www.youtube.com/embed/TjcoN9Aek24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Grid.Column>
-      <Grid.Column width={8}>
+      <Grid.Column width={8} center>
       <h3 align="center">Stop the Spread</h3>
-      {/* <iframe width="560" height="315" src="<https://www.youtube.com/watch?v=9Ay4u7OYOhA>" allowfullscreen></iframe> */}
+      <iframe style={style.iframe} width="480" height="340" src="https://www.youtube.com/embed/9Ay4u7OYOhA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </Grid.Column>
     </Grid.Row>
   </Grid>
+
   <br/> 
-  </Container>
+  </Container >
   </>
 )
 
@@ -72,7 +81,12 @@ export default Home;
 
 const style = {
   segment: {
-    backgroundColor: 'teal',
-    opacity: 0.7,
+    backgroundColor: 'lightblue',
+    opacity: 0.6,
+  },
+  iframe: {
+    marginRight: '40px', 
+    marginLeft: '40px', 
   }
 }
+
