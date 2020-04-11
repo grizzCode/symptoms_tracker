@@ -1,7 +1,8 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Menu, } from 'semantic-ui-react'
-import { Link, withRouter, } from 'react-router-dom'
+import { Menu, Image, } from 'semantic-ui-react'
+import { Link, withRouter, } from 'react-router-dom';
+import {Virus} from '../images/Virus.jpg';
 
 class Navbar extends React.Component {
   
@@ -43,7 +44,7 @@ class Navbar extends React.Component {
     return (
       <div>
         <Menu pointing secondary>
-          <Link to="/">
+          <Link to="/"><Image src={Virus} size="tiny"></Image>
             <Menu.Item
               name="home"
               id="home"
@@ -55,6 +56,13 @@ class Navbar extends React.Component {
               name="symptoms"
               id="symptoms"
               active={this.props.location.pathname === "/symptoms"}
+            />
+          </Link>
+          <Link to="/testingFacilities">
+            <Menu.Item
+              name="testingFacilities"
+              id="TestinfFacilities"
+              active={this.props.location.pathname === "/testingFacilities"}
             />
           </Link>
           {this.rightNavItems()}

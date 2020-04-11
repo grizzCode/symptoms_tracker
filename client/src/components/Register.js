@@ -3,15 +3,15 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Button, Form, Segment, Header, } from 'semantic-ui-react';
 
 class Register extends React.Component {
-  state = { email: '', password: '', passwordConfirmation: '', age: 0, gender: '', location: '', first_name: '', last_name: '' };
+  state = { email: 'test@gmail.com', password: '12345678', passwordConfirmation: '12345678', age: 1, gender: 'male', location: 'Park CIty', first_name: 'Chalres', last_name: 'Buxton', image:'/img' };
   
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirmation, first_name, last_name, age, gender, location } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, age, gender, location, image } = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
 
     if (password === passwordConfirmation)
-      handleRegister({ email, password, passwordConfirmation, first_name, last_name, age, gender, location }, history);
+      handleRegister({ email, password, passwordConfirmation, first_name, last_name, age, gender, location, image }, history);
     else
       alert('Passwords Do Not Match!')
   }
@@ -20,9 +20,13 @@ class Register extends React.Component {
     const { name, value, } = e.target;
     this.setState({ [name]: value, });
   }
+
+  handleDropdown = (e, {value}) => {
+    this.setState({ location: value})
+  }
   
   render() {
-    const { email, password, passwordConfirmation, first_name, last_name, age, gender, location } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, age, gender, location, image } = this.state;
     
     return (
       <Segment basic>
@@ -92,12 +96,20 @@ class Register extends React.Component {
               type='gender'
               onChange={this.handleChange}
             />
+            {/* <Form.Input
+              label="image"
+              name='image'
+              value={image}
+              placeholder='image'
+              type='image'
+              onChange={this.handleChange}
+            /> */}
             <Form.Select 
               label="Location"
               name="location"
               value={location}
-              onChange={this.handleChange}
-              options={location}
+              onChange={this.handleDropdown}
+              options={locationOptions}
              />
             <Segment textAlign='center' basic>
             <Button primary type='submit'>Submit</Button>
@@ -118,45 +130,45 @@ export default class ConnectedRegister extends React.Component {
   }
 }
 
-const location = [
-  { key: "1", value: "1", text: "Alpine" },
-  { key: "2", value: "2", text: "American Fork" },
-  { key: "3", value: "3", text: "Bountiful" },
-  { key: "4", value: "4", text: "Brigham City" },
-  { key: "5", value: "5", text: "Cottonwood Heights" },
-  { key: "6", value: "6", text: "Draper" },
-  { key: "7", value: "7", text: "Farmington" },
-  { key: "8", value: "8", text: "Granite" },
-  { key: "9", value: "9", text: "Highland" },
-  { key: "10", value: "10", text: "Holladay" },
-  { key: "11", value: "11", text: "Kaysville" },
-  { key: "12", value: "12", text: "Lehi" },
-  { key: "13", value: "13", text: "Logan" },
-  { key: "14", value: "14", text: "Midway" },
-  { key: "15", value: "15", text: "Moab" },
-  { key: "16", value: "16", text: "Murray" },
-  { key: "17", value: "17", text: "Nephi" },
-  { key: "18", value: "18", text: "North Ogden" },
-  { key: "19", value: "19", text: "North Salt Lake" },
-  { key: "20", value: "20", text: "Orem" },
-  { key: "21", value: "21", text: "Park City" },
-  { key: "22", value: "22", text: "Pleasant Grove" },
-  { key: "23", value: "23", text: "Provo" },
-  { key: "24", value: "24", text: "Riverton" },
-  { key: "25", value: "25", text: "St. George" },
-  { key: "26", value: "26", text: "Salt Lake City" },
-  { key: "27", value: "27", text: "Saratoga Springs" },
-  { key: "28", value: "28", text: "South Ogden" },
-  { key: "29", value: "29", text: "Spanish Fork" },
-  { key: "30", value: "30", text: "Taylorsville" },
-  { key: "31", value: "31", text: "Tooele" },
-  { key: "32", value: "32", text: "Uintah" },
-  { key: "33", value: "33", text: "Vernal" },
-  { key: "34", value: "34", text: "Vineyard" },
-  { key: "35", value: "35", text: "Washington" },
-  { key: "36", value: "36", text: "West Jordan" },
-  { key: "37", value: "37", text: "West Valley City" },
-  { key: "38", value: "38", text: "Willard" },
-  { key: "39", value: "39", text: "Woods Cross" },
+const locationOptions = [
+  { key: "1", value: "Alpine", text: "Alpine" },
+  { key: "2", value: "American Fork", text: "American Fork" },
+  { key: "3", value: "Bountiful", text: "Bountiful" },
+  { key: "4", value: "Brigham City", text: "Brigham City" },
+  { key: "5", value: "Cottonwood Heights", text: "Cottonwood Heights" },
+  { key: "6", value: "Draper", text: "Draper" },
+  { key: "7", value: "Farmington", text: "Farmington" },
+  { key: "8", value: "Granite", text: "Granite" },
+  { key: "9", value: "Highland", text: "Highland" },
+  { key: "10", value: "Holladay" , text: "Holladay" },
+  { key: "11", value: "Kaysville", text: "Kaysville" },
+  { key: "12", value: "Lehi", text: "Lehi" },
+  { key: "13", value: "Logan" , text: "Logan" },
+  { key: "14", value: "Midway" , text: "Midway" },
+  { key: "15", value: "Moab", text: "Moab" },
+  { key: "16", value: "Murray" , text: "Murray" },
+  { key: "17", value: "Nephi" , text: "Nephi" },
+  { key: "18", value: "North Ogden" , text: "North Ogden" },
+  { key: "19", value: "North Salt Lake" , text: "North Salt Lake" },
+  { key: "20", value: "Orem", text: "Orem" },
+  { key: "21", value: "Park City", text: "Park City" },
+  { key: "22", value: "Pleasant Grove", text: "Pleasant Grove" },
+  { key: "23", value: "Provo", text: "Provo" },
+  { key: "24", value: "Riverton", text: "Riverton" },
+  { key: "25", value: "St. George", text: "St. George" },
+  { key: "26", value: "Salt Lake City", text: "Salt Lake City" },
+  { key: "27", value: "Saratoga Springs", text: "Saratoga Springs" },
+  { key: "28", value: "South Ogden", text: "South Ogden" },
+  { key: "29", value: "Spanish Fork", text: "Spanish Fork" },
+  { key: "30", value: "Taylorsville", text: "Taylorsville" },
+  { key: "31", value: "Tooele", text: "Tooele" },
+  { key: "32", value: "Uintah", text: "Uintah" },
+  { key: "33", value: "Vernal", text: "Vernal" },
+  { key: "34", value: "Vineyard", text: "Vineyard" },
+  { key: "35", value: "Washington", text: "Washington" },
+  { key: "36", value: "West Jordan", text: "West Jordan" },
+  { key: "37", value: "West Valley City", text: "West Valley City" },
+  { key: "38", value: "Willard", text: "Willard" },
+  { key: "39", value: "Woods Cross", text: "Woods Cross" },
  
 ];
