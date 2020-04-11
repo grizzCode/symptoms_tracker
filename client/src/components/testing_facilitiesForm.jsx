@@ -28,6 +28,9 @@ clearState = () =>{
   hours: ''
   })
 }
+handleSubmit = () =>{
+
+}
 
 handleCancel = () =>{
   this.clearState()
@@ -41,7 +44,6 @@ render(){
       <p>Facilities Form</p>
       <Modal.Content>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
             <Form.Input
               name="name"
               label="Facility Name"
@@ -90,7 +92,6 @@ render(){
               onChange={this.handleChange}
               required
             />
-          </Form.Group>
           <Form.Button type="submit">Submit</Form.Button>
           <Form.Button color="red" onClick={this.handleCancel}>Cancel</Form.Button>
         </Form>
