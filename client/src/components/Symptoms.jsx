@@ -62,7 +62,7 @@ renderSymptoms = () =>{
          <hr />
          <List.Description>Feeling Ill?: {s.ill ? "YES": "NO"}</List.Description>
          <List.Description>Pain Level: {s.pain}</List.Description>
-         <List.Description>Pain Level: {s.pain}</List.Description>
+         <List.Description>Temperature: {s.temperature}</List.Description>
          <List.Description>Breathing Function: {s.breathing_function}</List.Description>
          <List.Description>Contact with Carrier?: {s.contact ? "YES": "NO"}</List.Description>
          <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
