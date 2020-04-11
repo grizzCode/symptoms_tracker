@@ -10,8 +10,28 @@ state ={
   city: '',
   zip: '',
   county: '',
-  hours: ''
-} 
+  hours: '',
+}
+
+componentDidMount(){
+  if(this.props.id === undefined){
+    //do nothing
+  } else {
+    this.getFacility()
+  }
+}
+
+getFacility = async() => {
+
+  const res = await axios.get(
+    `/api/testing_facilities/${this.props.id}`
+  );
+  console.log(res)
+
+  this.setState({
+    state: res.data
+  })
+}
 
 handleChange= (e, {name, value}) =>{
   this.setState({
@@ -45,9 +65,9 @@ handleCancel = () =>{
 
 render(){
   const {name, street, city, zip, county, hours} = this.state
+  console.log(this.props)
   return (
     <>
-      <p>Facilities Form</p>
       <Modal.Content>
         <Form onSubmit={this.handleSubmit}>
             <Form.Input

@@ -42,7 +42,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
           />
           <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+            <Button style={style.button} primary type='submit' fluid>Submit</Button>
           </Segment>
         </Form>
       </Segment>
@@ -60,4 +60,8 @@ export default class ConnectedLogin extends React.Component {
   }
 }
 
-
+const style ={
+  button: {
+    backgroundColor: "lightblue"
+  }
+}

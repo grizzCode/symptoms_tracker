@@ -19,6 +19,24 @@ const Home = () => (
   <li>Shortness of breath</li>
   </Segment >
   <Image src ={Symptoms} fluid/>
+  <h2>What are the risks?</h2>
+  <hr/>
+  <h3>Persons with compromised immune systems, i.e., sick people, the elderly, those with pre-existing respiratory conditions, like COPD or asthma, are at greatest risk of COVID-19 complications. The infection may spread to the lungs, causing pneumonia and respiratory failure. It is important to reduce their contact with anyone presenting or potentially presenting contact with the virus. If you have travelled or may have otherwise come into contact with the virus, it is advised to refrain from physically visiting with persons of this vulnerable population. If you are a person with a compromised immune system or are an elderly person, please avoid public spaces or travel.</h3>
+  
+  <h2>How can I prevent infection?</h2>
+  <hr/>
+  <h3>Dos:</h3>
+  <li>Wash your hands frequently with hot water and soap or alcohol-based sanitizer (60% alcohol). If your hands are visibly dirty, use soap and water.</li>
+  <li>If you have to cough or sneeze, cover your mouth and nose with your elbow, not your hand.</li>
+  <li>Maintain at least 1 meter (3 feet) distance between yourself and anyone who is coughing or sneezing.</li>
+  <h3>Don’ts:</h3>
+  <li>Don’t touch your face, especially your mouth, eyes, and nose.</li>
+  <li>Don’t go to work or school if you have symptoms of a cold or flu.</li>
+  <li>Avoid crowded public places and travel.</li>
+  <li>Avoid contact with people who feel unwell.</li>
+  <li>Don’t stockpile and use surgical masks if you do not have symptoms.</li>
+  <li>Do not go to your GP if you suspect being infected with the coronavirus. You may transmit the infection to others. Call your healthcare provider or local health authorities instead.</li>
+  <li>Do not use a taxi or public transport if you are advised to go to the hospital.</li>
   <Segment style={style.segment}>
     <h2>When to Seek Medical Attention</h2>
     <hr/>

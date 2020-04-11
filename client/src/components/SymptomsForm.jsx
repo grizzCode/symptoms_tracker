@@ -52,13 +52,11 @@ class Symptoms extends Component {
   handleSubmit = async()=> {
     if (this.props.record_id === undefined){
     const res = await Axios.post('/api/symptoms', this.state)
-    console.log(res)
         this.clearForm();
         this.props.toggleForm();
         this.props.getSymptoms();
   }else {
     const res = await Axios.put(`/api/symptoms/${this.props.record_id}`, this.state)
-    console.log(res)
         this.clearForm();
         this.props.toggleForm();
         this.props.getSymptoms();

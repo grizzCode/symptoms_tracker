@@ -1,5 +1,5 @@
 class Api::TestingFacilitiesController < ApplicationController
-  before_action :set_category, only: [:show, :update, :destroy]
+  before_action :set_testing_facility, only: [:show, :update, :destroy]
 
   def index
     render json: TestingFacility.all
@@ -28,10 +28,14 @@ class Api::TestingFacilitiesController < ApplicationController
   end
 
   def destroy
-    testing_facility.destroy
+    @testing_facility.destroy
   end
 
   private
+
+  def set_testing_facility
+    @testing_facility = TestingFacility.find(params[:id])
+  end
 
   def testing_falicility_params
     params.require(:testing_facility).
