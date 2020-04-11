@@ -30,10 +30,14 @@ class Api::SymptomsController < ApplicationController
   end
 
   def destroy
-    symptom.destroy
+    @symptom.destroy
   end
 
   private
+
+  def set_testing_facility
+    @symtom = Symptom.find(params[:id])
+  end
 
   def symptom_params
     params.require(:symptom).
