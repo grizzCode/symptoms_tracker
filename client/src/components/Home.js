@@ -37,7 +37,7 @@ const Home = () => (
   <li>Maintain at least 1 meter (3 feet) distance between yourself and anyone who is coughing or sneezing.</li>
     </Grid.Column>
     <Grid.Column>
-  <h3>Don’ts:</h3>
+  <h3>Don'ts:</h3>
   <li>Don’t touch your face, especially your mouth, eyes, and nose.</li>
   <li>Don’t go to work or school if you have symptoms of a cold or flu.</li>
   <li>Avoid crowded public places and travel.</li>

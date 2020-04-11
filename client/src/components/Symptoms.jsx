@@ -51,6 +51,7 @@ deleteSymptom = (id) => {
   })
 }
 
+
 renderSymptoms = () =>{
   const { symptoms_records } = this.state
   console.log(this.state.symptoms_records)
