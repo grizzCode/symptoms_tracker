@@ -3,6 +3,7 @@ import { Component } from "react";
 import FacilitiesForm from "./testing_facilitiesForm";
 import { Button, Modal, } from "semantic-ui-react";
 import axios from "axios";
+import Facility from "./facility"
 
 export default class TestingFacilities extends Component {
   state = {
@@ -28,11 +29,19 @@ export default class TestingFacilities extends Component {
     });
   };
 
+  deleteFacility = async( id)=>{
+    const res = await axios.delete(`/api/testing_facilities/${id}`)
+    console.log(res)
+    this.getFacilities()
+  }
+
   renderAllFacilities = () => (
     this.state.facilies.map(facility => {
       return (
         <>
-          <div>{facility.name}</div>
+          <div key={facility.id}>
+            <Facility facility={facility} id={facility.id} deleteFacility={this.deleteFacility}/>
+          </div>
         </>
       );
     })

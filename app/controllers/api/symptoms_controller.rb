@@ -38,6 +38,10 @@ class Api::SymptomsController < ApplicationController
     @symptom = Symptom.find(params[:id])
   end
 
+  def set_testing_facility
+    @symtom = Symptom.find(params[:id])
+  end
+
   def symptom_params
     params.require(:symptom).
     permit(
