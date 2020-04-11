@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Checkbox } from "semantic-ui-react";
+import Axios from "axios";
 
 class Symptoms extends Component {
   state = {
@@ -21,8 +22,9 @@ class Symptoms extends Component {
   handleCheckBoxClick = (e, { name, checked }) => {
     this.setState({ [name]: checked });
   };
-  handleSubmit =()=> {
-    console.log("submit clicked");
+  handleSubmit = async()=> {
+    const res = await Axios.post('/api/symptoms', this.state)
+    console.log(res)
   }
 
   render() {
