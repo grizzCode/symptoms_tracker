@@ -2,7 +2,7 @@ import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Menu, Image, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom';
-import {Virus} from '../images/Virus.jpg';
+import {Virus} from './Covid.png';
 
 class Navbar extends React.Component {
   
@@ -11,7 +11,7 @@ class Navbar extends React.Component {
     
     if (user) {
       return (
-        <Menu.Menu position='right'>
+        <Menu.Menu position='right'><Image src={Virus} size="tiny"></Image>
           <Menu.Item
             name='logout'
             onClick={ () => handleLogout(this.props.history) }
@@ -44,12 +44,14 @@ class Navbar extends React.Component {
     return (
       <div>
         <Menu pointing secondary>
-          <Link to="/"><Image src={Virus} size="tiny"></Image>
-            <Menu.Item
+          <Link to="/ ">
+            <Menu.Item 
               name="home"
               id="home"
               active={this.props.location.pathname === "/"}
+              
             />
+            
           </Link>
           <Link to="/symptoms">
             <Menu.Item
