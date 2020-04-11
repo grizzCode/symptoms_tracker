@@ -17,7 +17,6 @@ export default class TestingFacilities extends Component {
 
   getFacilities = async() => {
         const res = await axios.get(`/api/testing_facilities/`);
-        console.log(res)
         this.setState({
           facilies: res.data
         });
@@ -31,18 +30,15 @@ export default class TestingFacilities extends Component {
 
   deleteFacility = async( id)=>{
     const res = await axios.delete(`/api/testing_facilities/${id}`)
-    console.log(res)
     this.getFacilities()
   }
 
   renderAllFacilities = () => (
     this.state.facilies.map(facility => {
       return (
-        <>
-          <div key={facility.id}>
-            <Facility facility={facility} id={facility.id} deleteFacility={this.deleteFacility}/>
-          </div>
-        </>
+        <div key ={facility.id}>
+            <Facility facility={facility} id={facility.id} deleteFacility={this.deleteFacility} getFacilities={this.getFacilities}/>
+        </div>
       );
     })
   )
