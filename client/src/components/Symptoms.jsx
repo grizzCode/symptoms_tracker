@@ -7,8 +7,8 @@ import { Modal,Button, List} from 'semantic-ui-react'
 class Symptoms extends Component {
 state = {
   symptoms_records: [],
-  openNewForm: false
-  
+  openNewForm: false,
+  editForm: false
 }
 
 componentDidMount(){
@@ -28,9 +28,15 @@ toggleNewForm = () =>{
     openNewForm: !this.state.openNewForm
   })
 }
+toggleEditForm = () =>{
+  this.setState({
+    editForm: !this.state.editForm
+  })
+}
 
 editSymptom = (id) => {
   console.log('edit hit', id)
+  this.toggleEditForm()
 }
 deleteSymptom = (id) => {
   const { symptoms_records } = this.state
@@ -63,6 +69,16 @@ renderSymptoms = () =>{
        </List.Content>
        <hr />
        <Button primary size='mini' onClick={() => this.editSymptom(s.id)}>EDIT</Button>
+          <Modal
+              open={this.state.editForm}
+              onCancel={this.state.toggleEditForm}
+              record_id={s.id}
+            >
+            <SymptomsForm
+              toggleForm={this.toggleEditForm}
+              getSymptoms={this.getSymptomRecords}
+            />
+          </Modal>
        <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>DELETE</Button>
      </List>
      </div>
