@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
 import { Form, Modal } from 'semantic-ui-react'
+import axios from 'axios'
 
 export default class FacilitiesForm extends Component{
 state ={
@@ -29,7 +30,12 @@ clearState = () =>{
   })
 }
 handleSubmit = () =>{
-
+  axios
+    .post(`/api/testing_facilities`, this.state)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+  
+ 
 }
 
 handleCancel = () =>{
