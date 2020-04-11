@@ -90,8 +90,8 @@ renderSymptoms = () =>{
     return (
       <>
       <Container>
-        {this.renderSymptoms()}
         <Button style={style.button} fluid onClick={this.toggleNewForm}>Click here to fill out a new symptom survey</Button>
+        {this.renderSymptoms()}
         <Modal
           open={this.state.openNewForm}
           onCancel={this.state.toggleNewForm}
@@ -111,6 +111,7 @@ export default Symptoms;
 
 const style ={
   button: {
-    backgroundColor: "lightblue"
+    backgroundColor: "lightblue",
+    marginTop: '8px'
   }
 }

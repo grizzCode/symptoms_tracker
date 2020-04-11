@@ -17,7 +17,7 @@ export default class Facility extends Component {
   render() {
     const { facility } = this.props;
     return (
-      <div key={facility.id}>
+      <div key={facility.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black', padding: '6px'}}>
         <div>Name: {facility.name}</div>
         <div>
           Address:
@@ -31,15 +31,15 @@ export default class Facility extends Component {
           {facility.country}
         </div>
         <div>Hours: {facility.hours}</div>
-        <Button onClick={this.toggleForm} color="blue">
+        <Button primary size='mini' onClick={this.toggleForm} color="blue">
           Edit
         </Button>
-        <Modal open={this.state.editing} close={this.toggleForm}>
+        <Modal secondary size='mini' open={this.state.editing} close={this.toggleForm}>
           <FacilitiesForm toggleForm={this.toggleForm} {...this.props} />
         </Modal>
         <Button
           onClick={() => this.props.deleteFacility(this.props.id)}
-          color="red"
+          secondary size='mini'
         >
           Delete
         </Button>
