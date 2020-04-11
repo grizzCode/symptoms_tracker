@@ -110,13 +110,13 @@ class Symptoms extends Component {
               value={pain}
               onChange={this.handleChange}
             />
-            <Form.Input
+            {/* <Form.Input
               name="breathing_function"
               label="Difficulty with breathing function?(Yes/no)"
               placeholder="No"
               value={breathing_function}
               onChange={this.handleChange}
-            />
+            /> */}
             <Form.Input
               name="temperature"
               label="What is your current Temperature?"
