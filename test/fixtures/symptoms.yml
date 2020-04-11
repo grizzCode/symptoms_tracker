@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ill: false
+  pain: 1
+  breathing_function: MyString
+  temperature: 1.5
+  contact: false
+  breathing: false
+  facility: false
+  location: false
+  existing_dieseases: false
+  user: one
+
+two:
+  ill: false
+  pain: 1
+  breathing_function: MyString
+  temperature: 1.5
+  contact: false
+  breathing: false
+  facility: false
+  location: false
+  existing_dieseases: false
+  user: two
