@@ -31,7 +31,7 @@ export default class TestingFacilities extends Component {
     this.state.facilies.map(facility => {
       return (
         <>
-          <div>{facility.name}</div>
+          <div key={facility.id}>{facility.name}</div>
         </>
       );
     })

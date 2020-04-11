@@ -26,16 +26,15 @@ toggleNewForm = () =>{
     openNewForm: !this.state.openNewForm
   })
 }
-renderSymptoms = () =>{
-  console.log(this.state)
-  return this.state.symptoms_records.forEach(symptom => {
+renderSymptoms = () =>(
+  this.state.symptoms_records.forEach(symptom => {
     return (
       <>
-        <p>{symptom}</p>
+        <p>{symptom.date}</p>
       </>
     )
   })
-}
+)
 
   render(){
     return (
