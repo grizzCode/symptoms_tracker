@@ -6,7 +6,7 @@ const Home = () => (
   <>
   <br/>
   <Segment style={style.segment}>
-    <h1>Natural Selection</h1>
+    <h1 align="center">Natural Selection</h1>
   </Segment>
   <Segment style={style.segment}>
   <Header as="h1" textAlign="left">Watch for symptoms</Header>
