@@ -9,7 +9,7 @@ class Api::TestingFacilitiesController < ApplicationController
     render json: @testing_facility
   end
 
-  def new
+  def create
     testing_facility = Testing_Facility.new(testing_facility_params)
 
     if testing_facility.save
@@ -36,11 +36,11 @@ class Api::TestingFacilitiesController < ApplicationController
   def testing_falicility_params
     params.require(:symptom).
     permit(
-            :name
-            :street
-            :zip
-            :county
-            :city
+            :name,
+            :street,
+            :zip,
+            :county,
+            :city,
           )
   end
 end
