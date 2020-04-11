@@ -72,11 +72,12 @@ renderSymptoms = () =>{
           <Modal
               open={this.state.editForm}
               onCancel={this.state.toggleEditForm}
-              record_id={s.id}
+              
             >
             <SymptomsForm
               toggleForm={this.toggleEditForm}
               getSymptoms={this.getSymptomRecords}
+              record_id={s.id}
             />
           </Modal>
        <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>DELETE</Button>
