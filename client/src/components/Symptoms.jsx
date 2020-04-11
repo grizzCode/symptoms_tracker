@@ -28,6 +28,23 @@ toggleNewForm = () =>{
     openNewForm: !this.state.openNewForm
   })
 }
+
+editSymptom = (id) => {
+  console.log('edit hit', id)
+}
+deleteSymptom = (id) => {
+  const { symptoms_records } = this.state
+  console.log('delete hit', id)
+  Axios.delete(`/api/symptoms/${id}`)
+  .then(res => {
+    console.log(res)
+    const filteredArr = symptoms_records.filter(symptom => symptom.id !== id)
+    this.setState({
+      symptoms_records: filteredArr
+    })
+  })
+}
+
 renderSymptoms = () =>{
   const { symptoms_records } = this.state
   console.log(this.state.symptoms_records)
@@ -45,8 +62,8 @@ renderSymptoms = () =>{
          <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
        </List.Content>
        <hr />
-       <Button primary size='mini'>EDIT</Button>
-       <Button secondary size='mini'>DELETE</Button>
+       <Button primary size='mini' onClick={() => this.editSymptom(s.id)}>EDIT</Button>
+       <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>DELETE</Button>
      </List>
      </div>
     )
