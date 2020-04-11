@@ -67,7 +67,7 @@ renderSymptoms = () =>{
          <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
        </List.Content>
        <hr />
-       <Button primary size='mini' onClick={() => this.editSymptom(s.id)}>EDIT</Button>
+       <Button primary size='mini' onClick={() => this.editSymptom(s.id)}>Edit</Button>
           <Modal
               open={this.state.editForm}
               onCancel={this.state.toggleEditForm}
@@ -79,7 +79,7 @@ renderSymptoms = () =>{
               record_id={s.id}
             />
           </Modal>
-       <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>DELETE</Button>
+       <Button secondary size='mini' onClick={() => this.deleteSymptom(s.id)}>Delete</Button>
      </List>
      </div>
     )

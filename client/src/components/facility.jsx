@@ -19,6 +19,7 @@ export default class Facility extends Component {
     return (
       <div key={facility.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black', padding: '6px'}}>
         <div>Name: {facility.name}</div>
+        <hr />
         <div>
           Address:
           <br /> 
@@ -31,12 +32,14 @@ export default class Facility extends Component {
           {facility.country}
         </div>
         <div>Hours: {facility.hours}</div>
+        < hr/>
         <Button primary size='mini' onClick={this.toggleForm} color="blue">
           Edit
         </Button>
         <Modal secondary size='mini' open={this.state.editing} close={this.toggleForm}>
           <FacilitiesForm toggleForm={this.toggleForm} {...this.props} />
         </Modal>
+
         <Button
           onClick={() => this.props.deleteFacility(this.props.id)}
           secondary size='mini'
