@@ -6,6 +6,9 @@ const Home = () => (
   <>
   <br/>
   <Segment style={style.segment}>
+    <h1>Natural Selection</h1>
+  </Segment>
+  <Segment style={style.segment}>
   <Header as="h1" textAlign="left">Watch for symptoms</Header>
   <hr/>
   <h3>Reported illnesses have ranged from mild symptoms 
