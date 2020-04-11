@@ -17,14 +17,17 @@ class Symptoms extends Component {
 
   componentDidMount(){
     if(this.props.record_id === undefined){
+      console.log(this.props)
       //do nothing to set state
     } else {
+      console.log(this.props.record_id)
       this.setupEditingForm()
     }
   }
 
   setupEditingForm = async() =>{
     const res = await Axios.get(`/api/symptoms/${this.props.record_id}`)
+    console.log('edit form hit', res)
     this.setState({
       ill: res.data.ill,
       pain: res.data.pain,
