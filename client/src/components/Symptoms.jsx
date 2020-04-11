@@ -1,21 +1,23 @@
 import React, {Component} from 'react'
 import SymptomsForm from './SymptomsForm'
 import Axios from 'axios'
-import { Modal,Button } from 'semantic-ui-react'
+import { Modal,Button, List} from 'semantic-ui-react'
 
 
-class Symptoms extends Component{
+class Symptoms extends Component {
 state = {
   symptoms_records: [],
   openNewForm: false
+  
 }
 
 componentDidMount(){
   this.getSymptomRecords()
 }
 
-getSymptomRecords = async() =>{
-    const res = await Axios.get("/api/symptoms");
+getSymptomRecords = async() => {
+    const res = await Axios.get(`/api/symptoms`);
+    console.log(`symptoms: ${res}`)
     this.setState({
       symptoms_records: res.data
     })
@@ -26,15 +28,26 @@ toggleNewForm = () =>{
     openNewForm: !this.state.openNewForm
   })
 }
-renderSymptoms = () =>(
-  this.state.symptoms_records.forEach(symptom => {
-    return (
-      <>
-        <p>{symptom.date}</p>
-      </>
+renderSymptoms = () =>{
+  const { symptoms_records } = this.state
+  console.log(this.state.symptoms_records)
+  return symptoms_records.map( s => 
+    <div key={s.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black'}}>
+    <List>
+       <List.Content>
+         <List.Header>Data Entry: {s.created_at}</List.Header>
+         <List.Description>Feeling Ill?: {s.ill ? "YES": "NO"}</List.Description>
+         <List.Description>Pain Level: {s.pain}</List.Description>
+         <List.Description>Pain Level: {s.pain}</List.Description>
+         <List.Description>Breathing Function: {s.breathing_function}</List.Description>
+         <List.Description>Contact with Carrier?: {s.contact ? "YES": "NO"}</List.Description>
+         <List.Description>Difficulty Breathing?: {s.breathing ? "YES": "NO"}</List.Description>
+       </List.Content>
+     </List>
+     </div>
     )
-  })
-)
+
+}
 
   render(){
     return (
