@@ -2,7 +2,7 @@ class Api::SymptomsController < ApplicationController
   before_action :set_category, only: [:show, :update, :destroy]
 
   def index
-    render json: Symptoms.all
+    render json: Symptom.all
   end
 
   def show
@@ -10,13 +10,13 @@ class Api::SymptomsController < ApplicationController
   end
 
   #custom error for new creation
-  def new
+  def create
     symptom = Symptom.new(symptom_params)
 
     if symptom.save
       render json: symptom
     else
-      render json: symptom.errors, status: 444
+      render json: symptom.errors
     end
   end
 
@@ -41,11 +41,11 @@ class Api::SymptomsController < ApplicationController
             :ill, 
             :pain, 
             :breathing_function, 
-            :tempature, 
+            :temperature, 
             :contact,
             :breathing, 
-            :facility 
-            :location
+            :facility, 
+            :location,
             :existing_dieseases
           )
   end
