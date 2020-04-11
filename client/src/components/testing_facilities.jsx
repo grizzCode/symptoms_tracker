@@ -16,6 +16,7 @@ export default class TestingFacilities extends Component {
 
   getFacilities = async() => {
         const res = await axios.get(`/api/testing_facilities/`);
+        console.log(res)
         this.setState({
           facilies: res.data
         });
