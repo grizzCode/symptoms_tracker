@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Form} from 'semantic-ui-react'
 import SymptomsForm from './SymptomsForm'
 
 
@@ -9,6 +8,7 @@ state = {}
   render(){
     return(
       <>
+        <p>symptoms page</p>
         <SymptomsForm />
       </>
     )
