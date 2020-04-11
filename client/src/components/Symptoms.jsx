@@ -17,7 +17,6 @@ componentDidMount(){
 
 getSymptomRecords = async() => {
     const res = await Axios.get(`/api/symptoms`);
-    console.log(`symptoms: ${res}`)
     this.setState({
       symptoms_records: res.data
     })
@@ -53,7 +52,6 @@ deleteSymptom = (id) => {
 
 renderSymptoms = () =>{
   const { symptoms_records } = this.state
-  console.log(this.state.symptoms_records)
   return symptoms_records.map( s => 
     <div key={s.id} style={{border: '1px solid grey', margin:'16px', borderRadius:'3px', boxShadow: '2px 2px 8px black', padding: '6px'}}>
     <List>

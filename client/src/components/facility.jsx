@@ -12,13 +12,12 @@ export default class Facility extends Component {
     this.setState({
       editing: !this.state.editing
     });
-    console.log(this.state);
   };
 
   render() {
     const { facility } = this.props;
     return (
-      <>
+      <div key={facility.id}>
         <div>Name: {facility.name}</div>
         <div>
           Address:
@@ -44,7 +43,7 @@ export default class Facility extends Component {
         >
           Delete
         </Button>
-      </>
+      </div>
     );
   }
 }

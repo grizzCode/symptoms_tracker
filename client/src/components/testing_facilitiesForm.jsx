@@ -37,6 +37,8 @@ getFacility = async() => {
   });
 }
 
+
+
 handleChange= (e, {name, value}) =>{
   this.setState({
     [name]:value
@@ -55,18 +57,23 @@ clearState = () =>{
 }
 handleSubmit = () =>{
 
-  if (this.props.id === null ){
+  if (this.props.id === undefined ){
   axios
     .post(`/api/testing_facilities`, this.state)
     .then(res => console.log(res))
     .catch(err => console.log(err));
+    this.props.toggleForm()
   } else{
-    axios.put(`/api/testing_facilties/${this.props.id}`, this.state)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    axios
+      .put(`/api/testing_facilities/${this.props.id}`, this.state)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+      this.props.toggleForm()
   }
  
 }
+
+
 
 handleCancel = () =>{
   this.clearState()
