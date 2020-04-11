@@ -14,18 +14,10 @@ const Home = () => (
     2019 (COVID-19) cases. </h3>
   <h3>These symptoms may appear 2-14 days after exposure (based on 
   the incubation period of MERS-CoV viruses).</h3>
-<<<<<<< HEAD
-  <li>Fever (80-90% of cases) - body temperature over 38.3°C. This is the key symptom, sometimes accompanied by chills. More common in adults than children.</li>
-  <li>Cough (59-82% of cases) - usually dry.</li>
-  <li>Breathing difficulty, or shortness of breath (31-55% of cases) - appears on average 5-8 days after the first symptoms of the disease.</li>
-  <h4>In addition, other symptoms may occur, such as muscle pain, fatigue, increased phlegm production, headache, sore throat (at the beginning of the disease), chest pain, or coughing up blood (5% of cases). Some patients (10% of cases) also present gastrointestinal symptoms such as nausea, vomiting, diarrhea.</h4>
-  <h4>Important: Viruses are particularly common at this time of year. COVID-19 is challenging to diagnose as many of the symptoms are common to other infections. The hallmark symptoms of the COVID-19 infection are cough and fever. However, these are also symptoms of the common flu. Other symptoms, like sneezing, runny nose, sore throat, fatigue and muscle aches, are more suggestive of other infectious diseases.</h4>
-=======
   <li>Fever</li>
   <li>Cough</li>
   <li>Shortness of breath</li>
   </Segment >
->>>>>>> 671506e2889720b178cadce38317279e88e92353
   <Image src ={Symptoms} fluid/>
   <h2>What are the risks?</h2>
   <hr/>
